@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::resource('acampamentos', 'AcampamentoController');
+// Route::get('/acampamentos', 'AcampamentoController@index');
+// Route::get('/acampamentos/criar', 'AcampamentoController@create');
+// Route::post('/acampamentos', 'AcampamentoController@store');
