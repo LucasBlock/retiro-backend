@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Acampamento;
+use App\Http\Requests\AcampamentoRequest;
 
 class AcampamentoController extends Controller
 {
     public function index()
     {
-        $acampamentos = Acampamento::all()->sortBy('nome')->paginate(10);
+        $acampamentos = Acampamento::all()->sortBy('nome');
     }
 
     public function show($id)
@@ -23,13 +24,9 @@ class AcampamentoController extends Controller
         return view('acampamentos.create');
     }
 
-    public function store(Request $request)
+    public function store(AcampamentoRequest $request)
     {
-        // $request->validate([
-        //     'nome' => 'required',
-        //     'inicio' => 'required',
-        //     'fim' => 'required',
-        // ]);
+        $valido = $request->validated();
         Acampamento::create($request->all());
 
     }

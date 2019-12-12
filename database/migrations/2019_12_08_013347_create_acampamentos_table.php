@@ -15,9 +15,10 @@ class CreateAcampamentosTable extends Migration
     {
         Schema::create('acampamento', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nome', 100);
+            $table->string('nome', 255);
             $table->date('inicio');
             $table->date('fim');
+            $table->string('edicao');
             $table->timestamps();
         });
     }
